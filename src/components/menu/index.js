@@ -8,13 +8,12 @@ import styles from './style';
 
 const Menu = ({
   style,
-  handleWorkoutsOnPress,
-  handleQuestionsOnPress,
+  onPress,
 }) => {
   return (
     <Animated.View style={[styles.main, style]}>
       <View style={styles.menuRow}>
-        <TouchableOpacity style={styles.menuItem} onPress={handleWorkoutsOnPress}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => onPress('Workouts')}>
           <Icon
             name="heartbeat"
             size={Metrics.menu.icon}
@@ -22,7 +21,7 @@ const Menu = ({
           />
           <Text style={styles.menuItemText}>Treinos</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem} onPress={handleQuestionsOnPress}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => onPress('Questions')}>
           <Icon
             name="question-circle"
             size={Metrics.menu.icon}

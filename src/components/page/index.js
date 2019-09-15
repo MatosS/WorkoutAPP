@@ -145,23 +145,18 @@ const Page = ({ children, navigation, style = {}, showHeader, title }) => {
       zIndex: menuZIndex,
     };
 
-    const handleWorkoutsOnPress = () => {
-      if (navigation.state.routeName !== 'Workouts') {
-        navigation.navigate('Workouts');
+    const handleMenuOnPress = (page) => {
+      if (navigation.state.routeName !== page) {
+        navigation.navigate(page);
       } else {
         showContentAndHideMenu();
       }
     }
 
-    const handleQuestionsOnPress = () => {
-      showContentAndHideMenu();
-    }
-
     return (
       <Menu
         style={menuStyle}
-        handleWorkoutsOnPress={handleWorkoutsOnPress}
-        handleQuestionsOnPress={handleQuestionsOnPress}
+        onPress={handleMenuOnPress}
       />
     );
   }
@@ -177,7 +172,7 @@ const Page = ({ children, navigation, style = {}, showHeader, title }) => {
 
     return (
       <Animated.View style={[styles.content, pageContentStyle]}>
-        <ScrollView style={styles.scrollview} contentContainerStyle={[styles.contentContainer, style]}>
+        <ScrollView style={styles.scrollview} contentContainerStyle={style}>
           {children}
         </ScrollView>
       </Animated.View>
