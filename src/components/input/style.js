@@ -20,18 +20,20 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: Fonts.big,
+    height: Metrics.max,
   },
   tooltip: {
+    alignItems: 'center',
     backgroundColor: Colors.verylightgray,
     borderRadius: Metrics.radius.soft,
-    padding: Metrics.padding.regular,
+    justifyContent: 'center',
+    height: Metrics.height.regular-10,
+    paddingHorizontal: Metrics.padding.regular,
     position: 'absolute',
-    right: 0,
-    top: -35,
+    right: 35,
+    top: 5,
+    zIndex: 999,
   },
-  tooltipMessage: {
-    marginBottom: Metrics.margin.small,
-  }
 });
 
 export default styles;

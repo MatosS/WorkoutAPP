@@ -9,6 +9,9 @@ import styles from './style';
 const Input = ({
   type = 'general',
   tooltip = '',
+  styleContainer = {},
+  styleInput = {},
+  onFocus = () => {},
   ...props
 }) => {
   const [ showTooltip, setShowTooltip ] = useState(false);
@@ -17,6 +20,10 @@ const Input = ({
   const tooltipDismissDelay = 5000;
 
   const specificProps = {
+    textarea: {
+      multiline: true,
+      numberOfLines: 10,
+    },
     email: {
       autoCompleteType: 'email',
       keyboardType: 'email-address',
@@ -40,9 +47,14 @@ const Input = ({
     }
   }, [showTooltip]);
 
+  const handleOnFocus = () => {
+    setShowTooltip(false);
+    onFocus();
+  }
+
   return (
-    <View style={styles.main}>
-      <TextInput style={styles.input} {...props} {...specificProps[type]} />
+    <View style={[styles.main, styleContainer]}>
+      <TextInput style={[styles.input, styleInput]} onFocus={handleOnFocus} {...props} {...specificProps[type]} />
       {
         !!tooltip &&
         <TouchableOpacity
@@ -57,10 +69,9 @@ const Input = ({
       }
       {
         showTooltip &&
-        <View style={styles.tooltip}>
+        <TouchableOpacity style={styles.tooltip} onPress={() => setShowTooltip(!showTooltip)}>
           <Text>{tooltip}</Text>
-          {/* {tooltip.map((msg, i) => <Text key={i} style={styles.tooltipMessage}>{msg}</Text>)} */}
-        </View>
+        </TouchableOpacity>
       }
     </View>
   );

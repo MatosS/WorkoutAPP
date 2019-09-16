@@ -20,12 +20,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  dash: {
-    borderWidth: 1,
-    borderColor: Colors.lightgray,
-    marginVertical: Metrics.margin.small,
-    width: 10,
-  },
   series: {
     color: Colors.gray,
     fontSize: Fonts.big,

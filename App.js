@@ -20,7 +20,7 @@ const MainNavigator = createSwitchNavigator(
     Questions: { screen: Questions },
   },
   {
-    initialRouteName: 'Workouts',
+    initialRouteName: 'Login',
   },
 );
 

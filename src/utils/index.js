@@ -10,6 +10,21 @@ const mapNavParamsToProps = (SomeComponent) => {
   }
 }
 
+const replaceAll = (text, replace, to, once = false) => {
+  let newString = text;
+
+  while (newString.indexOf(replace) > -1) {
+    newString = newString.split(replace).join(to);
+
+    if (once) {
+      break;
+    }
+  }
+
+  return newString;
+}
+
 export {
   mapNavParamsToProps,
+  replaceAll,
 }

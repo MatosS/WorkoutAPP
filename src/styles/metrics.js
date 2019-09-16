@@ -46,6 +46,11 @@ const Metrics = {
     width: 40,
   },
 
+  youtubeThumb: {
+    height: 150,
+    width: '100%',
+  },
+
   max: '100%',
 };
 
